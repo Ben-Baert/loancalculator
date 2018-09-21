@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.String?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="600.0" prefHeight="0.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="loan.Controller">
+    <children>
+        <TextField fx:id="textFieldLoanAmount" layoutX="244.0" layoutY="43.0" minWidth="250.0"
+                   onKeyReleased="#onLoanAmountChanged" prefWidth="300.0" promptText="Amount"/>
+        <Label fx:id="labelLoanAmount" layoutX="69.0" layoutY="48.0" text="Loan amount"/>
+        <TextField fx:id="textFieldYearlyInterestRate" layoutX="245.0" layoutY="77.0" minWidth="250.0"
+                   onKeyReleased="#onYearlyInterestRateChanged" prefWidth="300.0" promptText="Amount"/>
+        <Label fx:id="labelYearlyInterestRate" layoutX="69.0" layoutY="82.0" text="Yearly interest rate"/>
+        <Slider fx:id="sliderDuration" blockIncrement="1.0" layoutX="243.0" layoutY="146.0" majorTickUnit="5.0"
+                max="30.0" min="5.0" minWidth="250.0" minorTickCount="1" onMouseDragged="#onDurationChanged"
+                prefWidth="300.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="5.0"/>
+        <Label fx:id="labelDuration" layoutX="69.0" layoutY="148.0" text="Duration"/>
+        <ComboBox fx:id="dropdownType" layoutX="244.0" layoutY="184.0" minWidth="250.0" onAction="#onTypeChanged"
+                  prefWidth="300.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Fixed payment"/>
+                    <String fx:value="Fixed capital payment"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label fx:id="labelType" layoutX="69.0" layoutY="189.0" text="Type"/>
+        <Label fx:id="labelMonthlyPayment" layoutX="69.0" layoutY="229.0" text="Max monthly payment"/>
+        <Label fx:id="labelMonthlyPaymentAmount" layoutX="246.0" layoutY="229.0" text="100EUR"/>
+        <Label fx:id="labelNrOfPayments" layoutX="69.0" layoutY="263.0" text="Nr of payments"/>
+        <Label fx:id="labelNrOfPaymentsAmount" layoutX="246.0" layoutY="263.0" text="36"/>
+        <Label fx:id="labelMonthlyInterestRate" layoutX="69.0" layoutY="116.0" text="Monthly interest rate"/>
+        <TextField fx:id="textFieldMonthlyInterestRate" layoutX="245.0" layoutY="111.0" minWidth="250.0"
+                   onKeyReleased="#onMonthlyInterestRateChanged" prefWidth="300.0" promptText="Amount"/>
+        <Label fx:id="labelNrOfYearsAmount" layoutX="247.0" layoutY="246.0" text="36"/>
+        <Label fx:id="labelNrOfYears" layoutX="70.0" layoutY="246.0" text="Nr of years"/>
+        <TableView fx:id="table" editable="true" layoutX="578.0" layoutY="38.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="483.0">
+            <columns>
+                <TableColumn fx:id="columnMonth" prefWidth="75.0" text="Month"/>
+                <TableColumn fx:id="columnOutstanding" prefWidth="75.0" text="Outstanding"/>
+                <TableColumn fx:id="columnPayment" prefWidth="75.0" text="Current Payment"/>
+                <TableColumn fx:id="columnInterest" prefWidth="75.0" text="Interest"/>
+                <TableColumn fx:id="columnCapital" prefWidth="75.0" text="Capital"/>
+            </columns>
+        </TableView>
+        <Label fx:id="labelTotalInterestAmount" layoutX="246.0" layoutY="280.0" text="36"/>
+        <Label fx:id="labelTotalInterest" layoutX="70.0" layoutY="280.0" text="Total interest"/>
+        <Label fx:id="labelTotalCost" layoutX="70.0" layoutY="297.0" text="Total cost"/>
+        <Label fx:id="labelTotalCostAmount" layoutX="246.0" layoutY="297.0" text="36"/>
+    </children>
+</AnchorPane>
